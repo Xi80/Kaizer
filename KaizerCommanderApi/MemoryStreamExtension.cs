@@ -26,6 +26,14 @@ public static class MemoryStreamExtension
         return t;
     }
 
+    public static void WriteUInt32B(this Stream stream, uint value)
+    {
+        stream.WriteByte((byte)((value >> 24) & 0xFF));
+        stream.WriteByte((byte)((value >> 16) & 0xFF));
+        stream.WriteByte((byte)((value >> 8) & 0xFF));
+        stream.WriteByte((byte)(value & 0xFF));
+    }
+
     public static string ReadString(this Stream stream, int length)
     {
         if (stream.Length < length)
