@@ -15,6 +15,8 @@ public class ManipulateReserveListReply : KserverCommandReply
         Header = KserverHeader.GenerateHeaderFromMemoryStream(stream);
         _result = stream.ReadUInt16B();
         _numberOfReserveSongs = stream.ReadUInt16B();
+        _playingSongInformation.SetValueFromMemoryStream(stream);
+        _interruptSongInformation.SetValueFromMemoryStream(stream);
         for (int i = 0; i < _numberOfReserveSongs; i++)
         {
             SongInformation s = new();
