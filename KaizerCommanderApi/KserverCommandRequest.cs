@@ -4,13 +4,13 @@ namespace KaizerCommanderApi;
 
 public abstract class KserverCommandRequest
 {
-    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+    protected static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
     protected KserverHeader Header;
     
     public abstract bool IsValid();
 
-    public abstract byte[] ToByteArray();
+    public abstract byte[]? ToByteArray();
 
     public ushort GetMessageId()
     {
