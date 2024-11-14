@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaizerCommanderApi", "Kaize
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KaizerCUI", "KaizerCUI\KaizerCUI.csproj", "{D81E4DE0-2766-42D6-95B1-9EB7C1AC6709}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KserverTest", "KserverTest\KserverTest.csproj", "{E736B07D-847A-4857-88D2-0806981592D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D81E4DE0-2766-42D6-95B1-9EB7C1AC6709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D81E4DE0-2766-42D6-95B1-9EB7C1AC6709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D81E4DE0-2766-42D6-95B1-9EB7C1AC6709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E736B07D-847A-4857-88D2-0806981592D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E736B07D-847A-4857-88D2-0806981592D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E736B07D-847A-4857-88D2-0806981592D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E736B07D-847A-4857-88D2-0806981592D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
