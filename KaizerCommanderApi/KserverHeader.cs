@@ -2,11 +2,11 @@ namespace KaizerCommanderApi;
 
 public class KserverHeader
 {
-    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
     
     public const ushort Size = 4;
-    private ushort dataSize;
-    private ushort messageId;
+    private readonly ushort _dataSize;
+    private readonly ushort _messageId;
 
     /// <summary>
     /// コンストラクタ
@@ -15,9 +15,9 @@ public class KserverHeader
     /// <param name="size">メッセージ長さ(16bit,BE)</param>
     public KserverHeader(ushort id, ushort size)
     {
-        messageId = (ushort)id;
-        dataSize = (ushort)size;
-        logger.Debug($"ID = {messageId:x4}, size = {dataSize:x4}");
+        _messageId = id;
+        _dataSize = size;
+        Logger.Debug($"ID = {_messageId:x4}, size = {_dataSize:x4}");
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class KserverHeader
     /// <returns>messageId</returns>
     public ushort GetMessageId()
     {
-        return messageId;
+        return _messageId;
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class KserverHeader
     /// <returns>dataSize</returns>
     public ushort GetDataSize()
     {
-        return dataSize;
+        return _dataSize;
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public class KserverHeader
     {
         if (stream.Length < Size)
         {
-            logger.Error($"Stream is too small. Size: {stream.Length}");
+            Logger.Error($"Stream is too small. Size: {stream.Length}");
             throw new ArgumentException($"Stream is too small. Expected: {Size:D}, Actual: {stream.Length:D}");
         }
         var messageId = stream.ReadUInt16B();
