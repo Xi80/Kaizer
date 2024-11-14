@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace KaizerCommanderApi;
 
 public static class MemoryStreamExtension
@@ -22,5 +24,39 @@ public static class MemoryStreamExtension
         t |= (uint)(stream.ReadByte() << 8);
         t |= (uint)(stream.ReadByte() << 0);
         return t;
+    }
+
+    public static string ReadString(this Stream stream, int length)
+    {
+        if (stream.Length < length)
+        {
+            return "";
+        }
+        
+        var t = new byte[length];
+        var isNotAllZero = false;
+        
+        for (int i = 0; i < length; i++)
+        {
+            t[i] = (byte)stream.ReadByte();
+            if (t[i] != 0x00)
+            {
+                isNotAllZero = true;
+            }
+        }
+
+        if (!isNotAllZero)
+        {
+            return "";
+        }
+
+        try
+        {
+            return Encoding.UTF8.GetString(t);
+        }
+        catch (Exception e)
+        {
+            return "";
+        }
     }
 }
