@@ -2,10 +2,10 @@ namespace KaizerCommanderApi;
 
 public static class MemoryStreamExtension
 {
-    public static UInt16 ReadUInt16B(this Stream stream)
+    public static ushort ReadUInt16B(this Stream stream)
     {
-        var t = (UInt16)(stream.ReadByte() << 8);
-        t|= (UInt16)(stream.ReadByte() << 0);
+        var t = (ushort)(stream.ReadByte() << 8);
+        t|= (ushort)(stream.ReadByte() << 0);
         return t;
     }
     
@@ -13,5 +13,14 @@ public static class MemoryStreamExtension
     {
         stream.WriteByte((byte)(value >> 8));
         stream.WriteByte((byte)(value & 0xFF));
+    }
+
+    public static uint ReadUInt32B(this Stream stream)
+    {
+        var t = (uint)(stream.ReadByte() << 24);
+        t |= (uint)(stream.ReadByte() << 16);
+        t |= (uint)(stream.ReadByte() << 8);
+        t |= (uint)(stream.ReadByte() << 0);
+        return t;
     }
 }
