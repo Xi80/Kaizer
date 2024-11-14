@@ -24,5 +24,9 @@ public class ManipulateReserveListReplyTest
         Assert.AreEqual(r.GetReplyId(),0x9111);
         Assert.AreEqual(r.GetResult(),0);
         Assert.AreEqual(r.GetNumberOfReserveSongs(),3);
+        Assert.AreEqual(r.GetPlayingSongInformation().GetTrayNo(),2905);
+        Assert.AreEqual(r.GetPlayingSongInformation().GetChapterNo(),88);
+        Assert.AreEqual(r.GetReserveSongInformationList()[2].GetTrayNo(),2905);
+        Assert.AreEqual(r.GetReserveSongInformationList()[2].GetChapterNo(),88);
     }
 }
