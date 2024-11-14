@@ -4,11 +4,9 @@ namespace KaizerCommanderApi;
 
 public abstract class KserverCommandRequest
 {
-    private static NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
-    public const int SerialLength = 8;
-    
-    protected KserverHeader header;
+    protected KserverHeader Header;
     
     public abstract bool IsValid();
 
@@ -16,12 +14,12 @@ public abstract class KserverCommandRequest
 
     public ushort GetMessageId()
     {
-        return header.GetMessageId();
+        return Header.GetMessageId();
     }
 
-    public ushort GetDataSzie()
+    public ushort GetDataSize()
     {
-        return header.GetDataSize();
+        return Header.GetDataSize();
     }
 
     public byte[] ConvertMemoryStreamToByteArray(MemoryStream stream)
@@ -35,16 +33,16 @@ public abstract class KserverCommandRequest
     public void SetHeaderValueToMemoryStream(MemoryStream stream)
     {
         stream.Seek(0, SeekOrigin.Begin);
-        stream.WriteUInt16B(header.GetMessageId());
-        stream.WriteUInt16B(header.GetDataSize());
+        stream.WriteUInt16B(Header.GetMessageId());
+        stream.WriteUInt16B(Header.GetDataSize());
     }
 
     public static void SetSelfSerialNoToMemoryStream(string tabletSerialNo,MemoryStream stream)
     {
-        if (tabletSerialNo.Length != SerialLength)
+        if (tabletSerialNo.Length != 8)
         {
-            _logger.Error($"tabletSerialNo is too small. Size: {tabletSerialNo.Length}");
-            throw new ArgumentException($"tabletSerialNo is too small. Expected: {SerialLength:D}, Actual: {tabletSerialNo.Length:D}");
+            Logger.Error($"tabletSerialNo is too small. Size: {tabletSerialNo.Length}");
+            throw new ArgumentException($"tabletSerialNo is too small. Expected: {8:D}, Actual: {tabletSerialNo.Length:D}");
         }
 
         var tabletSerialNoBytes = Encoding.UTF8.GetBytes(tabletSerialNo);
