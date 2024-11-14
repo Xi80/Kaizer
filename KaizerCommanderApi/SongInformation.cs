@@ -3,148 +3,148 @@ namespace KaizerCommanderApi;
 public class SongInformation
 {
     public const ushort Size = 0x18;
-    private long time = 0;      /* 予約した時点のUnixタイム? */
-    private int trayNo = 0;     /* 選曲番号上4桁*/
-    private int chapterNo = 0;  /* 選曲番号下2桁*/
-    private int sequenceNo = 0;
-    private int keyTempo = 0;
-    private int voiceChange = 0;
-    private int telopSongMask = 0;
-    private int guide = 0;
-    private int yourStory = 0;
-    private int localId = 0;
-    private int contentsType = 0;
-    private long backgroundMovie = 0;
-    private int dmtVocal = 0;
-    private byte[] reserve = new byte[3];
+    private long _time = 0;      /* 予約した時点のUnixタイム? */
+    private int _trayNo = 0;     /* 選曲番号上4桁*/
+    private int _chapterNo = 0;  /* 選曲番号下2桁*/
+    private int _sequenceNo = 0;
+    private int _keyTempo = 0;
+    private int _voiceChange = 0;
+    private int _telopSongMask = 0;
+    private int _guide = 0;
+    private int _yourStory = 0;
+    private int _localId = 0;
+    private int _contentsType = 0;
+    private long _backgroundMovie = 0;
+    private int _dmtVocal = 0;
+    private byte[] _reserve = new byte[3];
 
     public void SetValueFromMemoryStream(MemoryStream stream)
     {
-        time = stream.ReadUInt32B();
-        trayNo = stream.ReadUInt16B();
-        chapterNo = stream.ReadByte();
-        sequenceNo = stream.ReadByte();
-        keyTempo = stream.ReadByte();
-        voiceChange = stream.ReadByte();
-        telopSongMask = stream.ReadByte();
-        guide = stream.ReadByte();
-        yourStory = stream.ReadByte();
-        localId = stream.ReadByte();
-        contentsType = stream.ReadUInt16B();
-        backgroundMovie = stream.ReadUInt32B();
-        dmtVocal = stream.ReadByte();
-        _ = stream.Read(reserve, 0, reserve.Length);
+        _time = stream.ReadUInt32B();
+        _trayNo = stream.ReadUInt16B();
+        _chapterNo = stream.ReadByte();
+        _sequenceNo = stream.ReadByte();
+        _keyTempo = stream.ReadByte();
+        _voiceChange = stream.ReadByte();
+        _telopSongMask = stream.ReadByte();
+        _guide = stream.ReadByte();
+        _yourStory = stream.ReadByte();
+        _localId = stream.ReadByte();
+        _contentsType = stream.ReadUInt16B();
+        _backgroundMovie = stream.ReadUInt32B();
+        _dmtVocal = stream.ReadByte();
+        _ = stream.Read(_reserve, 0, _reserve.Length);
     }
     
     public long GetTime() {
-        return this.time;
+        return this._time;
     }
 
     public void SetTime(long time) {
-        this.time = time;
+        this._time = time;
     }
 
     public int GetTrayNo() {
-        return this.trayNo;
+        return this._trayNo;
     }
 
     public void SetTrayNo(int trayNo) {
-        this.trayNo = trayNo;
+        this._trayNo = trayNo;
     }
 
     public int GetChapterNo() {
-        return this.chapterNo;
+        return this._chapterNo;
     }
 
     public void SetChapterNo(int chapterNo) {
-        this.chapterNo = chapterNo;
+        this._chapterNo = chapterNo;
     }
 
     public int GetSequenceNo() {
-        return this.sequenceNo;
+        return this._sequenceNo;
     }
 
     public void SetSequenceNo(int sequenceNo) {
-        this.sequenceNo = sequenceNo;
+        this._sequenceNo = sequenceNo;
     }
 
     public int GetKeyTempo() {
-        return this.keyTempo;
+        return this._keyTempo;
     }
 
     public void SetKeyTempo(int keyTempo) {
-        this.keyTempo = keyTempo;
+        this._keyTempo = keyTempo;
     }
 
     public int GetVoiceChange() {
-        return this.voiceChange;
+        return this._voiceChange;
     }
 
     public void SetVoiceChange(int voiceChange) {
-        this.voiceChange = voiceChange;
+        this._voiceChange = voiceChange;
     }
 
     public int GetTelopSongMask() {
-        return this.telopSongMask;
+        return this._telopSongMask;
     }
 
     public void SetTelopSongMask(int telopSongMask) {
-        this.telopSongMask = telopSongMask;
+        this._telopSongMask = telopSongMask;
     }
 
     public int GetGuide() {
-        return this.guide;
+        return this._guide;
     }
 
     public void SetGuide(int guide) {
-        this.guide = guide;
+        this._guide = guide;
     }
 
     public int GetYourStory() {
-        return this.yourStory;
+        return this._yourStory;
     }
 
     public void SetYourStory(int yourStory) {
-        this.yourStory = yourStory;
+        this._yourStory = yourStory;
     }
 
     public int GetLocalId() {
-        return this.localId;
+        return this._localId;
     }
 
     public void SetLocalId(int localId) {
-        this.localId = localId;
+        this._localId = localId;
     }
 
     public int GetContentsType() {
-        return this.contentsType;
+        return this._contentsType;
     }
 
     public void SetContentsType(int contentsType) {
-        this.contentsType = contentsType;
+        this._contentsType = contentsType;
     }
 
     public long GetBackgroundMovie() {
-        return this.backgroundMovie;
+        return this._backgroundMovie;
     }
 
     public void SetBackgroundMovie(long backgroundMovie) {
-        this.backgroundMovie = backgroundMovie;
+        this._backgroundMovie = backgroundMovie;
     }
 
     public int GetDmtVocal() {
-        return this.dmtVocal;
+        return this._dmtVocal;
     }
 
     public void SetDmtVocal(int dmtVocal) {
-        this.dmtVocal = dmtVocal;
+        this._dmtVocal = dmtVocal;
     }
 
     public byte[] GetReserve() {
-        return this.reserve;
+        return this._reserve;
     }
 
     public void SetReserve(byte[] reserve) {
-        this.reserve = reserve;
+        this._reserve = reserve;
     }
 }
